@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import { Contract, providers, BigNumber ,utils} from "ethers";
+import { Contract, providers, BigNumber, utils } from "ethers";
 import { abi } from "../constants/CrytoDevMetadata.json";
 import { abi as NFtAbi } from "../constants/NFTCollectionMetadata.json";
 import {
@@ -115,26 +115,27 @@ export default function CrytoDevIco({}: Props) {
       console.log(e);
       setTokensToBeClaimed(zero);
     }
-   }
+  };
 
-    const getBalanceOfCryptoDevTokens = async () => {
-      try {
-        // Using a single function to get the signer or provider
-        const { provider, signer } = await getProviderAndSigner();
-        //To create an instance of the contract connected to the provider
-        const tokenContract = await getProviderConnectedContract();
-        //To get the address of the msg.sender
-        const ownerAddress = await signer.getAddress();
-        //To the get the number of tokens that has been mined for that address
-        const balance = await tokenContract.balanceOf(ownerAddress);
-        setBalanceOfCryptoDevTokens(balance);
-      } catch (e: unknown) {
-        console.log(e);
-        setBalanceOfCryptoDevTokens(zero);
-      }
-    };
-  
+  //This function gets the balance of the tokens that the signer address has
+  const getBalanceOfCryptoDevTokens = async () => {
+    try {
+      // Using a single function to get the signer or provider
+      const { provider, signer } = await getProviderAndSigner();
+      //To create an instance of the contract connected to the provider
+      const tokenContract = await getProviderConnectedContract();
+      //To get the address of the msg.sender
+      const ownerAddress = await signer.getAddress();
+      //To the get the number of tokens that has been mined for that address
+      const balance = await tokenContract.balanceOf(ownerAddress);
+      setBalanceOfCryptoDevTokens(balance);
+    } catch (e: unknown) {
+      console.log(e);
+      setBalanceOfCryptoDevTokens(zero);
+    }
+  };
 
+  //This function get the number of CryptoDev token that is in existence
   const getTotalTokensMinted = async () => {
     try {
       // Using a single function to get the signer or provider
@@ -147,30 +148,33 @@ export default function CrytoDevIco({}: Props) {
     } catch (e: unknown) {
       console.log(e);
     }
+  };
 
-    const mintCryptoDevToken = async (amount:number) => {
-      try {
-        // Using a single function to get the signer or provider
-        const { provider, signer } = await getProviderAndSigner();
-        //To create an instance of the contract connected to the signer
-        const tokenContract = await getSignerConnectedContract();
-        //This calculation is the same with one in the smart contract
-        const value  =  0.001 * amount
-        //This to perform the transaction
-        const tx = await tokenContract.mint(amount,{value:utils.parseEther(value.toString())})
-        //To change the state of the button if the transaction has started
-        setLoading(true)
-        await tx.wait()
-        //To change the state of the button if the transaction is over
-        setLoading(false)
-        window.alert("🎉 Successfully minted CryptoDev tokens 🎉")
-        await getTokensToBeClaimed()
-        await getTotalTokensMinted()
-        await getBalanceOfCryptoDevTokens()
-      } catch (e: unknown) {
-        console.log(e);
-      }
-    };
+  //This function helps to mint the CryptoDev's Token depending on the amount that is wanted
+  const mintCryptoDevToken = async (amount: number) => {
+    try {
+      // Using a single function to get the signer or provider
+      const { provider, signer } = await getProviderAndSigner();
+      //To create an instance of the contract connected to the signer
+      const tokenContract = await getSignerConnectedContract();
+      //This calculation is the same with one in the smart contract
+      const value = 0.001 * amount;
+      //This to perform the transaction
+      const tx = await tokenContract.mint(amount, {
+        value: utils.parseEther(value.toString()),
+      });
+      //To change the state of the button if the transaction has started
+      setLoading(true);
+      await tx.wait();
+      //To change the state of the button if the transaction is over
+      setLoading(false);
+      alert("🎉 Successfully minted CryptoDev's token 🎉");
+      await getTokensToBeClaimed();
+      await getTotalTokensMinted();
+      await getBalanceOfCryptoDevTokens();
+    } catch (e: unknown) {
+      console.log(e);
+    }
   };
 
   return <div>hello world </div>;
