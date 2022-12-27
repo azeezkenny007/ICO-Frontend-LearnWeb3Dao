@@ -134,5 +134,19 @@ export default function CrytoDevIco({}: Props) {
     };
   };
 
+  const getTotalTokensMinted = async () => {
+    try {
+      // Using a single function to get the signer or provider
+      const { provider, signer } = await getProviderAndSigner();
+      //To create an instance of the contract connected to the provider
+      const tokenContract = await getProviderConnectedContract();
+      //To get the number of Token that has been minted
+      const _tokenMinted = await tokenContract.totalSupply();
+      setTokensMinted(_tokenMinted);
+    } catch (e: unknown) {
+      console.log(e);
+    }
+  };
+
   return <div>hello world </div>;
 }
