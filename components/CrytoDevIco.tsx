@@ -1,11 +1,33 @@
 import React,{useRef,useState,useEffect} from 'react'
 import {Contract,providers,BigNumber} from "ethers"
 import {abi} from "../constants/CrytoDevMetadata.json"
-import {goerliIcoAddress,polygonIcoAddress} from "../constants/index"
+import {abi as NFtAbi} from "../constants/NFTCollectionMetadata.json"
+import {crytoDevGoerliAddress, goerliIcoAddress,polygonIcoAddress} from "../constants/index"
 
 type Props = {}
 
 export default function CrytoDevIco({}: Props) {
+
+   // Create a BigNumber `0`
+   const zero = BigNumber.from(0);
+   // walletConnected keeps track of whether the user's wallet is connected or not
+   const [walletConnected, setWalletConnected] = useState<boolean>(false);
+   // loading is set to true when we are waiting for a transaction to get mined
+   const [loading, setLoading] = useState<boolean>(false);
+   // tokensToBeClaimed keeps track of the number of tokens that can be claimed
+   // based on the Crypto Dev NFT's held by the user for which they havent claimed the tokens
+   const [tokensToBeClaimed, setTokensToBeClaimed] = useState<BigNumber>(zero);
+   // balanceOfCryptoDevTokens keeps track of number of Crypto Dev tokens owned by an address
+   const [balanceOfCryptoDevTokens, setBalanceOfCryptoDevTokens] =
+     useState(zero);
+   // amount of the tokens that the user wants to mint
+   const [tokenAmount, setTokenAmount] = useState<BigNumber>(zero);
+   // tokensMinted is the total number of tokens that have been minted till now out of 10000(max total supply)
+   const [tokensMinted, setTokensMinted] = useState<BigNumber>(zero);
+   // isOwner gets the owner of the contract through the signed address
+   const [isOwner, setIsOwner] = useState<boolean>(false);
+   // Create a reference to the Web3 Modal (used for connecting to Metamask) which persists as long as the page is open
+ 
  
  const web3ModalRef = useRef<any>();
  const getProviderAndSigner = async (): Promise<{ provider: providers.Web3Provider, signer: providers.JsonRpcSigner }> => {
@@ -17,7 +39,6 @@ export default function CrytoDevIco({}: Props) {
     alert("Please change network to goerli or polygon");
     throw new Error("Please change network to goerli or polygon");
   }
-
   const signer = web3Provider.getSigner();
   return { provider: web3Provider, signer };
 };
@@ -34,6 +55,17 @@ const getSignerConnectedContract = async (): Promise<Contract> => {
   );
   return signerConnectedContract;
 };
+
+
+const getNftConnectedContract= async():Promise<Contract> =>{
+ const {provider,signer} = await getProviderAndSigner();
+ const signerConnectedContract = new Contract(
+  crytoDevGoerliAddress,
+   abi,
+   provider
+ );
+ return signerConnectedContract;
+}
 
 const getProviderConnectedContract = async (): Promise<Contract> => {
   const {provider,signer} = await getProviderAndSigner();
