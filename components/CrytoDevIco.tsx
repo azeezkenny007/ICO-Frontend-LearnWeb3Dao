@@ -1,6 +1,6 @@
 import React,{useRef,useState,useEffect} from 'react'
-import {Contract,providers} from "ethers"
-import {abi} from "../constants/contractMetadata.json"
+import {Contract,providers,BigNumber} from "ethers"
+import {abi} from "../constants/CrytoDevMetadata.json"
 import {goerliIcoAddress,polygonIcoAddress} from "../constants/index"
 
 type Props = {}
