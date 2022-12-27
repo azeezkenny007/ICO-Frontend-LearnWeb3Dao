@@ -3,6 +3,7 @@ import {Contract,providers,BigNumber} from "ethers"
 import {abi} from "../constants/CrytoDevMetadata.json"
 import {abi as NFtAbi} from "../constants/NFTCollectionMetadata.json"
 import {crytoDevGoerliAddress, goerliIcoAddress,polygonIcoAddress} from "../constants/index"
+import Web3Modal from "web3modal";
 
 type Props = {}
 
