@@ -4,6 +4,6 @@ type Props = {}
 
 export default function CrytoDevIco({}: Props) {
   return (
-    <div>CrytoDevIco</div>
+    <div>hello world </div>
   )
 }
