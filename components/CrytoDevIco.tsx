@@ -184,7 +184,7 @@ export default function CrytoDevIco({}: Props) {
       const { provider, signer } = await getProviderAndSigner();
       //To create an instance of the contract connected to the signer
       const tokenContract = await getSignerConnectedContract();
-      //This calculation is the same with one in the smart contract
+      //This function is use to claim the tokens
       const tx = await tokenContract.claim();
       //To change the state of the button if the transaction has started
       setLoading(true);
@@ -207,7 +207,7 @@ export default function CrytoDevIco({}: Props) {
       const { provider, signer } = await getProviderAndSigner();
       //To create an instance of the contract connected to the provider
       const tokenContract = await getProviderConnectedContract();
-      //This calculation is the same with one in the smart contract
+      //This retrieves the deployer of the smart contract
       const _ownerAddressFromContract = await tokenContract.owner();
       const ownerAddress = await signer.getAddress();
       //This checks if the owner address === to the signer's address
@@ -228,7 +228,7 @@ export default function CrytoDevIco({}: Props) {
       const { provider, signer } = await getProviderAndSigner();
       //To create an instance of the contract connected to the provider
       const tokenContract = await getProviderConnectedContract();
-      //This calculation is the same with one in the smart contract
+      //function to withdraw from the smart contract
       const tx = await tokenContract.withdraw();
       setLoading(true);
       await tx.wait();
@@ -240,6 +240,18 @@ export default function CrytoDevIco({}: Props) {
       alert(e)
     }
   };
+
+  const connectWallet = async () => {
+   try {
+     // Get the provider from web3Modal, which in our case is MetaMask
+     // When used for the first time, it prompts the user to connect their wallet
+      const {provider,signer} = await getProviderAndSigner()
+      await provider
+     setWalletConnected(true);
+   } catch (err) {
+     console.error(err);
+   }
+ };
 
   return <div>hello world </div>;
 }
