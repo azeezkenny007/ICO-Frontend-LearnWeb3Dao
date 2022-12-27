@@ -83,7 +83,7 @@ export default function CrytoDevIco({}: Props) {
       //To get the NFT contract instance
       const nftContract = await getNftProviderConnectedContract();
       //To get the Token contract instance
-      const tokenContract = await getSignerConnectedContract();
+      const tokenContract = await getProviderConnectedContract();
       //To get the msg.sender address
       const ownerAddress = await signer.getAddress();
       //Since this contract inherits from the ERC721 standard it automatically get the balnaceOf function
@@ -98,7 +98,10 @@ export default function CrytoDevIco({}: Props) {
         // Only increase the amount if the tokens have not been claimed
         // for a an NFT(for a given tokenId)
         for (var i = 0; i < balance; i++) {
-          const tokenId = await nftContract.tokenOfOwnerByIndex(ownerAddress, i);
+          const tokenId = await nftContract.tokenOfOwnerByIndex(
+            ownerAddress,
+            i
+          );
           const claimed = await tokenContract.tokenIdsClaimed(tokenId);
           if (!claimed) {
             amount++;
@@ -112,6 +115,23 @@ export default function CrytoDevIco({}: Props) {
       console.log(e);
       setTokensToBeClaimed(zero);
     }
+
+    const getBalanceOfCryptoDevTokens = async () => {
+      try {
+        // Using a single function to get the signer or provider
+        const { provider, signer } = await getProviderAndSigner();
+        //To create an instance of the contract connected to the provider
+        const tokenContract = await getProviderConnectedContract();
+        //To get the address of the msg.sender
+        const ownerAddress = await signer.getAddress();
+        //To the get the number of tokens that has been mined for that address
+        const balance = await tokenContract.balanceOf(ownerAddress);
+        setBalanceOfCryptoDevTokens(balance);
+      } catch (e: unknown) {
+        console.log(e);
+        setBalanceOfCryptoDevTokens(zero);
+      }
+    };
   };
 
   return <div>hello world </div>;
