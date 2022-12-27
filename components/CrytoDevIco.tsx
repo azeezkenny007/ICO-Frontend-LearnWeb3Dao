@@ -57,7 +57,7 @@ const getSignerConnectedContract = async (): Promise<Contract> => {
 };
 
 
-const getNftConnectedContract= async():Promise<Contract> =>{
+const getNftProviderConnectedContract= async():Promise<Contract> =>{
  const {provider,signer} = await getProviderAndSigner();
  const signerConnectedContract = new Contract(
   crytoDevGoerliAddress,
