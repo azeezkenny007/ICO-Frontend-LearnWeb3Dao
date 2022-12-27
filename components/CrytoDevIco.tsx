@@ -205,7 +205,7 @@ export default function CrytoDevIco({}: Props) {
     try {
       // Using a single function to get the signer or provider
       const { provider, signer } = await getProviderAndSigner();
-      //To create an instance of the contract connected to the signer
+      //To create an instance of the contract connected to the provider
       const tokenContract = await getProviderConnectedContract();
       //This calculation is the same with one in the smart contract
       const _ownerAddressFromContract = await tokenContract.owner();
@@ -218,6 +218,26 @@ export default function CrytoDevIco({}: Props) {
       }
     } catch (e: unknown) {
       console.log(e);
+    }
+  };
+
+  //This function allows only the deployer of the smart contract to withdraw from the smart contract
+  const withdrawCoins = async () => {
+    try {
+      // Using a single function to get the signer or provider
+      const { provider, signer } = await getProviderAndSigner();
+      //To create an instance of the contract connected to the provider
+      const tokenContract = await getProviderConnectedContract();
+      //This calculation is the same with one in the smart contract
+      const tx = await tokenContract.withdraw();
+      setLoading(true);
+      await tx.wait();
+      //To change the state of the button if the transaction is over
+      setLoading(false);
+      alert("🎉 CryptoDev's funds has been successfully withdrawn 🎉");
+    } catch (e: unknown) {
+      console.log(e);
+      alert(e)
     }
   };
 
