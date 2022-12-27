@@ -177,5 +177,26 @@ export default function CrytoDevIco({}: Props) {
     }
   };
 
+  const claimCryptoDevTokens = async () => {
+    try {
+      // Using a single function to get the signer or provider
+      const { provider, signer } = await getProviderAndSigner();
+      //To create an instance of the contract connected to the signer
+      const tokenContract = await getSignerConnectedContract();
+      //This calculation is the same with one in the smart contract
+      const tx = await tokenContract.claim()
+       //To change the state of the button if the transaction has started
+       setLoading(true);
+       await tx.wait();
+       //To change the state of the button if the transaction is over
+       setLoading(false);
+       alert("🎉 CryptoDev's contract has successfully been Claimed 🎉");
+       await getTokensToBeClaimed();
+       await getTotalTokensMinted();
+    } catch (e: unknown) {
+      console.log(e);
+    }
+  };
+
   return <div>hello world </div>;
 }
