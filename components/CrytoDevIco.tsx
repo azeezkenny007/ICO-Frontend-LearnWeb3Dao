@@ -18,8 +18,7 @@ export default function CrytoDevIco({}: Props) {
    // based on the Crypto Dev NFT's held by the user for which they havent claimed the tokens
    const [tokensToBeClaimed, setTokensToBeClaimed] = useState<BigNumber>(zero);
    // balanceOfCryptoDevTokens keeps track of number of Crypto Dev tokens owned by an address
-   const [balanceOfCryptoDevTokens, setBalanceOfCryptoDevTokens] =
-     useState(zero);
+   const [balanceOfCryptoDevTokens, setBalanceOfCryptoDevTokens] = useState<BigNumber>(zero);
    // amount of the tokens that the user wants to mint
    const [tokenAmount, setTokenAmount] = useState<BigNumber>(zero);
    // tokensMinted is the total number of tokens that have been minted till now out of 10000(max total supply)
