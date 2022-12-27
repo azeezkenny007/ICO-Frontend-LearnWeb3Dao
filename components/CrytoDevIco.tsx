@@ -200,6 +200,7 @@ export default function CrytoDevIco({}: Props) {
     }
   };
 
+  //This function allows you to setIsOwner state to true if the owner === signer address
   const getOwner = async () => {
     try {
       // Using a single function to get the signer or provider
