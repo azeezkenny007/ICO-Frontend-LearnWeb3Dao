@@ -1,4 +1,4 @@
-# ⚖ __ICO (INITIAL COIN OFFERING) Frontend NFT__
+# ⚖ __ICO (INITIAL COIN OFFERING) Frontend__
 
 __Link__ : [ICO Dapp](https://ico-frontend-learn-web3-dao.vercel.app/ "NFT Collection")
 
