@@ -1,27 +1,29 @@
-# Next.js + Tailwind CSS Example
+# ⚖ __ICO (INITIAL COIN OFFERING) Frontend NFT__
 
-This example shows how to use [Tailwind CSS](https://tailwindcss.com/) [(v3.2)](https://tailwindcss.com/blog/tailwindcss-v3-2) with Next.js. It follows the steps outlined in the official [Tailwind docs](https://tailwindcss.com/docs/guides/nextjs).
+__Link__ : [ICO Dapp](https://ico-frontend-learn-web3-dao.vercel.app/ "NFT Collection")
 
-## Deploy your own
+❗❗ __Disclaimer: Please don't use Real funds__ 
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=next-example) or preview live with [StackBlitz](https://stackblitz.com/github/vercel/next.js/tree/canary/examples/with-tailwindcss)
+This is the Dapp for the  CrytoDev smart Contract
+<div style="margin-top:20px"></div>
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss&project-name=with-tailwindcss&repository-name=with-tailwindcss)
+![ICO](public/ICO%20DV.jpg)
 
-## How to use
+<div style="margin-top:20px"></div>
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+__Requirements Needed To Interact With The Dapp__
+- Metamask wallet 
 
-```bash
-npx create-next-app --example with-tailwindcss with-tailwindcss-app
-```
+### __🚀 Things To Take Note__
 
-```bash
-yarn create next-app --example with-tailwindcss with-tailwindcss-app
-```
+<div style="margin-top:20px"></div>
 
-```bash
-pnpm create next-app --example with-tailwindcss with-tailwindcss-app
-```
+- This is frontend for the ICO (Initail coin offering) smart contract
+- It uses implemenations from the CrytoDev Nft using  an interface to show the relationship and simualte the behaviour
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+<div style="margin-top:20px"></div>
+
+## 📱  __Contact__
+- __Phone number - +2348134570701__
+* __Twitter - [ken_okha](https://twitter.com/Ken_okha "ken_okha")__
+* __BlockChain developer__
