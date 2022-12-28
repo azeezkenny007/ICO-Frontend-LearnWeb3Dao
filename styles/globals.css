@@ -9,3 +9,19 @@
  font-weight: 400;
  font-style: normal;
  }
+
+ @font-face {
+  font-family: "new";
+  src: url("../fonts/AmaticSC-Regular.ttf");
+  src: url("../fonts/AmaticSC-Bold.ttf");
+  font-weight: 400;
+  font-style: normal;
+ }
+
+ 
+ @font-face {
+  font-family: "fascinate";
+  src: url("../fonts/Poppins-Light.ttf");
+  font-weight: 400;
+  font-style: normal;
+ }

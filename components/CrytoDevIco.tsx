@@ -228,7 +228,7 @@ export default function CrytoDevIco({}: Props) {
       // Using a single function to get the signer or provider
       const { provider, signer } = await getProviderAndSigner();
       //To create an instance of the contract connected to the provider
-      const tokenContract = await getProviderConnectedContract();
+      const tokenContract = await getSignerConnectedContract();
       //function to withdraw from the smart contract
       const tx = await tokenContract.withdraw();
       setLoading(true);
@@ -298,14 +298,14 @@ export default function CrytoDevIco({}: Props) {
     }
     // If user doesn't have any tokens to claim, show the mint button
     return (
-      <div style={{ display: "flex-col" }}>
+      <div style={{ display: "flex-col" }} >
         <div>
           <input
             type="number"
             placeholder="Amount of Tokens"
             // BigNumber.from converts the `e.target.value` to a BigNumber
             onChange={(e) => setTokenAmount(BigNumber.from(e.target.value))}
-            className={styles.input}
+            className={`${styles.input} text-black`}
           />
         </div>
 
@@ -321,7 +321,7 @@ export default function CrytoDevIco({}: Props) {
   };
 
   return (
-    <div>
+    <div className="bg-gray-900 text-white">
       <div className={styles.main}>
         <div>
           <h1 className={styles.title}>Welcome to Crypto Devs ICO!</h1>
