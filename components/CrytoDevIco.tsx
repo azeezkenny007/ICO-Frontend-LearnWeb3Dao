@@ -172,7 +172,7 @@ export default function CrytoDevIco({}: Props) {
       await tx.wait();
       //To change the state of the button if the transaction is over
       setLoading(false);
-      toast.success("🎉 Successfully minted CryptoDev's token 🎉",{theme:"dark",icon:"✔"});
+      toast.success("🎉 Successfully minted CryptoDev's token 🎉",{theme:"dark",icon:"✅"});
       await getTokensToBeClaimed();
       await getTotalTokensMinted();
       await getBalanceOfCryptoDevTokens();
@@ -196,7 +196,7 @@ export default function CrytoDevIco({}: Props) {
       await tx.wait();
       //To change the state of the button if the transaction is over
       setLoading(false);
-      toast.success("🎉 CryptoDev's contract has successfully been Claimed 🎉");
+      toast.success("🎉 CryptoDev's contract has successfully been Claimed 🎉",{theme:"dark",icon:"✅"});
       await getTokensToBeClaimed();
       await getTotalTokensMinted();
       await getBalanceOfCryptoDevTokens();
@@ -240,7 +240,7 @@ export default function CrytoDevIco({}: Props) {
       await tx.wait();
       //To change the state of the button if the transaction is over
       setLoading(false);
-     toast.success("🎉 CryptoDev's funds has been successfully withdrawn 🎉",{theme:"dark",icon:"✔"});
+     toast.success("🎉 CryptoDev's funds has been successfully withdrawn 🎉",{theme:"dark",icon:"✅"});
       await getOwner()
     } catch (e: unknown) {
       console.log(e);
@@ -327,7 +327,7 @@ export default function CrytoDevIco({}: Props) {
   };
 
   return (
-    <div className="bg-gray-900 text-white">
+    <div className="bg-black text-gray-200">
       <div className={styles.main}>
         <div>
           <h1 className={styles.title}>Welcome to Crypto Devs ICO!</h1>
