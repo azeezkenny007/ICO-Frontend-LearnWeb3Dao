@@ -237,7 +237,7 @@ export default function CrytoDevIco({}: Props) {
       //To change the state of the button if the transaction is over
       setLoading(false);
       alert("🎉 CryptoDev's funds has been successfully withdrawn 🎉");
-      getOwner()
+      await getOwner()
     } catch (e: unknown) {
       console.log(e);
       alert(e)
