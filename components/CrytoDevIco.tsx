@@ -3,6 +3,8 @@ import { Contract, providers, BigNumber, utils } from "ethers";
 import { abi } from "../constants/CrytoDevMetadata.json";
 import { abi as NFtAbi } from "../constants/NFTCollectionMetadata.json";
 import styles from "../styles/Home.module.css"
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   crytoDevGoerliAddress,
   goerliIcoAddress,
