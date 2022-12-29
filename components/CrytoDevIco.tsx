@@ -196,12 +196,13 @@ export default function CrytoDevIco({}: Props) {
       await tx.wait();
       //To change the state of the button if the transaction is over
       setLoading(false);
-      alert("🎉 CryptoDev's contract has successfully been Claimed 🎉");
+      toast.success("🎉 CryptoDev's contract has successfully been Claimed 🎉");
       await getTokensToBeClaimed();
       await getTotalTokensMinted();
       await getBalanceOfCryptoDevTokens();
     } catch (e: unknown) {
       console.log(e);
+      toast.error("Error during transaction",{theme:"dark",icon:"❌"});
     }
   };
 
@@ -239,11 +240,11 @@ export default function CrytoDevIco({}: Props) {
       await tx.wait();
       //To change the state of the button if the transaction is over
       setLoading(false);
-      alert("🎉 CryptoDev's funds has been successfully withdrawn 🎉");
+     toast.success("🎉 CryptoDev's funds has been successfully withdrawn 🎉",{theme:"dark",icon:"✔"});
       await getOwner()
     } catch (e: unknown) {
       console.log(e);
-      alert(e)
+      toast.error("Error during transaction",{theme:"dark",icon:"❌"});
     }
   };
 
