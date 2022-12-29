@@ -178,7 +178,7 @@ export default function CrytoDevIco({}: Props) {
       await getBalanceOfCryptoDevTokens();
     } catch (e: unknown) {
       console.log(e);
-      toast.error("🎉 Successfully minted CryptoDev's token 🎉",{theme:"dark"});
+      toast.error("Error during transaction",{theme:"dark"});
     }
   };
 
