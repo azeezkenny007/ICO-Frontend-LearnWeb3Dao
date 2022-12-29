@@ -172,13 +172,13 @@ export default function CrytoDevIco({}: Props) {
       await tx.wait();
       //To change the state of the button if the transaction is over
       setLoading(false);
-      toast.success("🎉 Successfully minted CryptoDev's token 🎉",{theme:"dark"});
+      toast.success("🎉 Successfully minted CryptoDev's token 🎉",{theme:"dark",icon:"✔"});
       await getTokensToBeClaimed();
       await getTotalTokensMinted();
       await getBalanceOfCryptoDevTokens();
     } catch (e: unknown) {
       console.log(e);
-      toast.error("Error during transaction",{theme:"dark"});
+      toast.error("Error during transaction",{theme:"dark",icon:"❌"});
     }
   };
 
