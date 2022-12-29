@@ -32,7 +32,8 @@ export default function CrytoDevIco({}: Props) {
   // isOwner gets the owner of the contract through the signed address
   const [isOwner, setIsOwner] = useState<boolean>(false);
   // Create a reference to the Web3 Modal (used for connecting to Metamask) which persists as long as the page is open
-
+ 
+  
   const web3ModalRef = useRef<any>();
   const getProviderAndSigner = async (): Promise<{
     provider: providers.Web3Provider;
@@ -236,6 +237,7 @@ export default function CrytoDevIco({}: Props) {
       //To change the state of the button if the transaction is over
       setLoading(false);
       alert("🎉 CryptoDev's funds has been successfully withdrawn 🎉");
+      getOwner()
     } catch (e: unknown) {
       console.log(e);
       alert(e)
